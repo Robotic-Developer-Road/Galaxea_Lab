@@ -1,0 +1,9 @@
+# Copyright (c) 2022-2024, The Isaac Lab Project Developers.
+# All rights reserved.
+#
+# SPDX-License-Identifier: BSD-3-Clause
+
+"""Manager-based environments for the R1 robot."""
+
+from .lift import *  # noqa
+from .push import *  # noqa
