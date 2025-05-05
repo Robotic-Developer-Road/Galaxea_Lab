@@ -1,0 +1,3 @@
+[submodule "source/galaxea/galaxea/assets/urdf"]
+	path = source/galaxea/galaxea/assets/urdf
+	url = https://github.com/userguide-galaxea/URDF.git
