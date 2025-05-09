@@ -174,7 +174,7 @@ class R1MultiFruitEnv(DirectRLEnv):
         if self.cfg.enable_camera:
             self._front_camera = Camera(self.cfg.front_camera_cfg)
             self._left_wrist_camera = Camera(self.cfg.left_wrist_camera_cfg)
-            self._right_wrist_camera = Camera(self.cfg.left_wrist_camera_cfg)
+            self._right_wrist_camera = Camera(self.cfg.right_wrist_camera_cfg)
             self.scene.sensors["front_camera"] = self._front_camera
             self.scene.sensors["left_wrist_camera"] = self._left_wrist_camera
             self.scene.sensors["right_wrist_camera"] = self._right_wrist_camera
@@ -317,6 +317,7 @@ class R1MultiFruitEnv(DirectRLEnv):
         r_arm_joint_vel = joint_vel[:, self.right_arm_joint_ids]
         l_gripper_joint_vel = joint_vel[:, self.left_gripper_joint_ids]
         r_gripper_joint_vel = joint_vel[:, self.right_gripper_joint_ids]
+
         # normalize gripper joint velocity
         l_gripper_joint_vel = l_gripper_joint_vel[:, 0] / (
             self.gripper_open - self.gripper_close
@@ -355,6 +356,7 @@ class R1MultiFruitEnv(DirectRLEnv):
             [right_ee_pos, self._right_ee_frame.data.target_quat_w[..., 0, :]], dim=-1
         )
         return right_ee_pose
+
     def _get_rewards(self) -> torch.Tensor:
         reward = self._compute_reward()
         return reward
@@ -378,18 +380,18 @@ class R1MultiFruitEnv(DirectRLEnv):
         self._robot.write_joint_state_to_sim(joint_pos, joint_vel, env_ids=env_ids)
 
         object_default_state = self._object[0].data.default_root_state[env_ids].clone()
-        env_num = object_default_state.shape[0]  
+        env_num = object_default_state.shape[0]
 
-        initial_x = object_default_state[:, 0] 
-        initial_y = object_default_state[:, 1] 
+        initial_x = object_default_state[:, 0]
+        initial_y = object_default_state[:, 1]
 
-        #arbitarily set the offsets among 3x3 discrete values
+        # arbitarily set the offsets among 3x3 discrete values
         x_offsets = torch.tensor([0.0, 0.05, 0.1], device=self.device)
         y_offsets = torch.tensor([0.0, 0.05, 0.1], device=self.device)
         
         random_x_indices = torch.randint(0, len(x_offsets), (env_num,), device=self.device)
         random_y_indices = torch.randint(0, len(y_offsets), (env_num,), device=self.device)
-        
+
         selected_x_offsets = x_offsets[random_x_indices]  # shape=[env_num]
         selected_y_offsets = y_offsets[random_y_indices]  # shape=[env_num]
         
@@ -397,7 +399,7 @@ class R1MultiFruitEnv(DirectRLEnv):
         object_default_state[:, 1] = initial_y + selected_y_offsets
         object_default_state[:, 0:3] = object_default_state[:, 0:3] + self.scene.env_origins[env_ids]
 
-        #arbitarily set the yaw among 5 discrete values (0, 45, 90, 135, 180) 
+        # arbitarily set the yaw among 5 discrete values (0, 45, 90, 135, 180)
         yaw_options = torch.tensor([0, math.radians(45), math.radians(90), math.radians(135), math.radians(180)], device=self.device)
         
         random_yaw = random.choices(yaw_options, k=env_num)  

@@ -79,7 +79,6 @@ class R1LiftEnvCfg(DirectRLEnvCfg):
 
     # scene, must be named as "scene", can not be renamed with other str
     scene: InteractiveSceneCfg = InteractiveSceneCfg(num_envs=1, env_spacing=3.0)
-    
 
     # robot
     robot_cfg: ArticulationCfg = GALAXEA_R1_HIGH_PD_CFG.replace(

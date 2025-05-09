@@ -27,57 +27,21 @@ from .lift_env_cfg import (
 # Register Gym environments.
 ##
 
-# gym.register(
-#     id="Isaac-R1-Multi-Fruit-IK-Abs-Direct-v0",
-#     entry_point="galaxea.tasks.direct.lift:R1MultiFruitEnv",
-#     disable_env_checker=True,
-#     kwargs={
-#         "env_cfg_entry_point": R1MultiFruitAbsEnvCfg,
-#         # "rl_games_cfg_entry_point": f"{agents.__name__}:rl_games_ppo_cfg.yaml",
-#         # "rsl_rl_cfg_entry_point": agents.rsl_rl_ppo_cfg.FrankaCabinetPPORunnerCfg,
-#         # "skrl_cfg_entry_point": f"{agents.__name__}:skrl_ppo_cfg.yaml",
-#     },
-# )
-
 gym.register(
-    id="Isaac-R1-Multi-Fruit-IK-Abs-Direct-v0",
+    id="Template-Isaac-R1-Multi-Fruit-IK-Abs-Direct-v0",
     entry_point=R1MultiFruitEnv,
     disable_env_checker=True,
     kwargs={
         "env_cfg_entry_point": R1MultiFruitAbsEnvCfg,
-        # "rl_games_cfg_entry_point": f"{agents.__name__}:rl_games_ppo_cfg.yaml",
-        # "rsl_rl_cfg_entry_point": agents.rsl_rl_ppo_cfg.FrankaCabinetPPORunnerCfg,
-        # "skrl_cfg_entry_point": f"{agents.__name__}:skrl_ppo_cfg.yaml",
+        "rl_games_cfg_entry_point": f"{agents.__name__}:rl_games_ppo_cfg.yaml",
+        "rsl_rl_cfg_entry_point": agents.rsl_rl_ppo_cfg.FrankaCabinetPPORunnerCfg,
+        "skrl_cfg_entry_point": f"{agents.__name__}:skrl_ppo_cfg.yaml",
     },
 )
 
-# gym.register(
-#     id="Isaac-R1-Multi-Cube-IK-Abs-Direct-v0",
-#     entry_point="galaxea.tasks.direct.lift:R1LiftEnv",
-#     disable_env_checker=True,
-#     kwargs={
-#         "env_cfg_entry_point": f"{__name__}.lift_env_cfg:R1MultiLiftCubeAbsEnvCfg",
-#         # "rl_games_cfg_entry_point": f"{agents.__name__}:rl_games_ppo_cfg.yaml",
-#         # "rsl_rl_cfg_entry_point": agents.rsl_rl_ppo_cfg.FrankaCabinetPPORunnerCfg,
-#         # "skrl_cfg_entry_point": f"{agents.__name__}:skrl_ppo_cfg.yaml",
-#     },
-# )
-
-# gym.register(
-#     id="Isaac-R1-Lift-Cube-IK-Abs-Direct-v0",
-#     entry_point="galaxea.tasks.direct.lift:R1LiftEnv",
-#     disable_env_checker=True,
-#     kwargs={
-#         "env_cfg_entry_point": R1LiftCubeAbsEnvCfg,
-#         # "rl_games_cfg_entry_point": f"{agents.__name__}:rl_games_ppo_cfg.yaml",
-#         # "rsl_rl_cfg_entry_point": agents.rsl_rl_ppo_cfg.FrankaCabinetPPORunnerCfg,
-#         # "skrl_cfg_entry_point": f"{agents.__name__}:skrl_ppo_cfg.yaml",
-#     },
-# )
-
 gym.register(
-    id="Isaac-R1-Lift-Cube-IK-Abs-Direct-v0",
-    entry_point=R1LiftEnv,
+    id="Template-Isaac-R1-Lift-Cube-IK-Abs-Direct-v0",
+    entry_point="galaxea.tasks.direct.lift:R1LiftEnv",
     disable_env_checker=True,
     kwargs={
         "env_cfg_entry_point": R1LiftCubeAbsEnvCfg,
@@ -88,7 +52,7 @@ gym.register(
 )
 
 gym.register(
-    id="Isaac-R1-Lift-Cube-Direct-v0",
+    id="Template-Isaac-R1-Lift-Cube-Direct-v0",
     entry_point="galaxea.tasks.direct.lift:R1LiftEnv",
     disable_env_checker=True,
     kwargs={
@@ -100,7 +64,7 @@ gym.register(
 )
 
 gym.register(
-    id="Isaac-R1-Lift-Cube-IK-Rel-Direct-v0",
+    id="Template-Isaac-R1-Lift-Cube-IK-Rel-Direct-v0",
     entry_point="galaxea.tasks.direct.lift:R1LiftEnv",
     disable_env_checker=True,
     kwargs={
@@ -112,7 +76,7 @@ gym.register(
 )
 
 gym.register(
-    id="Isaac-R1-Lift-Bin-Direct-v0",
+    id="Template-Isaac-R1-Lift-Bin-Direct-v0",
     entry_point="galaxea.tasks.direct.lift:R1LiftEnv",
     disable_env_checker=True,
     kwargs={
@@ -124,7 +88,7 @@ gym.register(
 )
 
 gym.register(
-    id="Isaac-R1-Lift-Bin-IK-Abs-Direct-v0",
+    id="Template-Isaac-R1-Lift-Bin-IK-Abs-Direct-v0",
     entry_point="galaxea.tasks.direct.lift:R1LiftEnv",
     disable_env_checker=True,
     kwargs={
@@ -137,7 +101,7 @@ gym.register(
 )
 
 gym.register(
-    id="Isaac-R1-Lift-Bin-IK-Rel-Direct-v0",
+    id="Template-Isaac-R1-Lift-Bin-IK-Rel-Direct-v0",
     entry_point="galaxea.tasks.direct.lift:R1LiftEnv",
     disable_env_checker=True,
     kwargs={
@@ -147,31 +111,3 @@ gym.register(
         # "skrl_cfg_entry_point": f"{agents.__name__}:skrl_ppo_cfg.yaml",
     },
 )
-
-# -------------------------------------------test failed-----------------------------------------------
-
-# gym.register(
-#     id="Isaac-R1-Multi-Fruit-IK-Abs-Direct-v0",
-#     entry_point="galaxea.tasks.direct.lift.pick_fruit_env:R1MultiFruitEnv",
-#     disable_env_checker=True,
-#     kwargs={
-#         "env_cfg_entry_point": f"{__name__}.lift_env_cfg:R1MultiFruitAbsEnvCfg",
-#         "rl_games_cfg_entry_point": f"{agents.__name__}:rl_games_ppo_cfg.yaml",
-#         "rsl_rl_cfg_entry_point": f"{agents,__name__}.rsl_rl_ppo_cfg.FrankaCabinetPPORunnerCfg",
-#         "skrl_cfg_entry_point": f"{agents.__name__}:skrl_ppo_cfg.yaml",
-#     },
-# )
-
-# gym.register(
-#     id="Isaac-R1-Multi-Fruit-IK-Abs-Direct-v0",
-#     entry_point=f"{__name__}.pick_fruit_env:R1MultiFruitEnv",
-#     disable_env_checker=True,
-#     kwargs={
-#         "env_cfg_entry_point": f"{__name__}.lift_env_cfg:R1MultiFruitAbsEnvCfg",
-#         "rl_games_cfg_entry_point": f"{agents.__name__}:rl_games_ppo_cfg.yaml",
-#         "rsl_rl_cfg_entry_point": f"{agents,__name__}.rsl_rl_ppo_cfg.FrankaCabinetPPORunnerCfg",
-#         "skrl_cfg_entry_point": f"{agents.__name__}:skrl_ppo_cfg.yaml",
-#     },
-# )
-
-# -------------------------------------------test failed-----------------------------------------------

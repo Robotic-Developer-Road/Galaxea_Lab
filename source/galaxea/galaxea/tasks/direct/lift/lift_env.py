@@ -144,13 +144,13 @@ class R1LiftEnv(DirectRLEnv):
         # self._table = RigidObject(self.cfg.table_cfg)
 
         # add camera
-        # if self.cfg.enable_camera:
-        #     self._front_camera = Camera(self.cfg.front_camera_cfg)
-        #     self._left_wrist_camera = Camera(self.cfg.left_wrist_camera_cfg)
-        #     self._right_wrist_camera = Camera(self.cfg.right_wrist_camera_cfg)
-        #     self.scene.sensors["front_camera"] = self._front_camera
-        #     self.scene.sensors["left_wrist_camera"] = self._left_wrist_camera
-        #     self.scene.sensors["right_wrist_camera"] = self._right_wrist_camera
+        if self.cfg.enable_camera:
+            self._front_camera = Camera(self.cfg.front_camera_cfg)
+            self._left_wrist_camera = Camera(self.cfg.left_wrist_camera_cfg)
+            self._right_wrist_camera = Camera(self.cfg.right_wrist_camera_cfg)
+            self.scene.sensors["front_camera"] = self._front_camera
+            self.scene.sensors["left_wrist_camera"] = self._left_wrist_camera
+            self.scene.sensors["right_wrist_camera"] = self._right_wrist_camera
 
         # frame transformer
         self._left_ee_frame = FrameTransformer(self.cfg.left_ee_frame_cfg)
@@ -202,7 +202,6 @@ class R1LiftEnv(DirectRLEnv):
         self._robot.set_joint_position_target(
             self.right_gripper_joint_pos_target, self.right_gripper_joint_ids
         )
-
 
     # post-physics step calls
     def _get_observations(self) -> dict:
