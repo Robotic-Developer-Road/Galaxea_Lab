@@ -15,7 +15,7 @@ from isaaclab.app import AppLauncher
 parser = argparse.ArgumentParser(description="Collect demonstrations for Isaac Lab environments.")
 # parser.add_argument("--cpu", action="store_true", default=False, help="Use CPU pipeline.")
 parser.add_argument("--num_envs", type=int, default=1, help="Number of environments to simulate.")
-parser.add_argument("--task", type=str, default=None, help="Name of the task.")
+parser.add_argument("--task", type=str, default="Isaac-Lift-Cube-Franka-IK-Rel-v0", help="Name of the task.")
 # parser.add_argument("--device", type=str, default="keyboard", help="Device for interacting with environment")
 parser.add_argument("--num_demos", type=int, default=1, help="Number of episodes to store in the dataset.")
 parser.add_argument("--filename", type=str, default="hdf_dataset", help="Basename of output file.")
@@ -41,7 +41,7 @@ from isaaclab.utils.io import dump_pickle, dump_yaml
 
 import isaaclab_tasks  # noqa: F401
 from isaaclab_tasks.manager_based.manipulation.lift import mdp
-from isaaclab_tasks.utils.data_collector import RobomimicDataCollector
+from galaxea.tasks.utils.data_collector import RobomimicDataCollector
 from isaaclab_tasks.utils.parse_cfg import parse_env_cfg
 
 
