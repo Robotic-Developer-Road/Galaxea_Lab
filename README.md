@@ -64,7 +64,6 @@ python3 source/standalone/galaxea/basic/follow_target_diff_ik.py
 
 ![](./img/run_diff_ik.png)
 
-
 ### collect_demos.py
 ```bash
 #start to collected pick and place fruit data via Galaxea R1-DVT robot
@@ -72,6 +71,11 @@ python3 source/standalone/galaxea/rule_based_policy/collect_demos.py --enable_ca
 ```
 
 ![](./img/collect_demo.png)
+
+### collect_demonstrations.py
+```bash
+python3 source/standalone/workflows/robomimic/collect_demonstrations.py
+```
 
 ### lift.py
 ```bash
