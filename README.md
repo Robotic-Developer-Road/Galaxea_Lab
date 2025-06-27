@@ -77,6 +77,11 @@ python3 source/standalone/galaxea/rule_based_policy/collect_demos.py --enable_ca
 python3 source/standalone/workflows/robomimic/collect_demonstrations.py
 ```
 
+<div style="position: relative; padding-bottom: 56.25%; height: 0;">
+  <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114686213233537&bvid=BV1qtMxzBEtn&cid=30508451661&p=1&autoplay=0" frameborder="no" scrolling="no" 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+</div>
+
 ### lift.py
 ```bash
 python3 source/standalone/galaxea/scripted_policy/lift.py
