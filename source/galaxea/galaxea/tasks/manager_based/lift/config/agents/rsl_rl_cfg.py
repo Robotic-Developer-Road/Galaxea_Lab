@@ -13,11 +13,13 @@ from isaaclab_rl.rsl_rl import (
 
 
 @configclass
-class LiftBoxPPORunnerCfg(RslRlOnPolicyRunnerCfg):
+class LiftCubePPORunnerCfg(RslRlOnPolicyRunnerCfg):
     num_steps_per_env = 24
     max_iterations = 1500
     save_interval = 50
-    experiment_name = "r1_lift_box"
+    experiment_name = "r1_lift_cube"
+    run_name = ""
+    resume = False
     empirical_normalization = False
     policy = RslRlPpoActorCriticCfg(
         init_noise_std=1.0,
