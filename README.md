@@ -1,4 +1,4 @@
-![Galaxea Lab](./img/R1DVT_FRUIT.jpg)
+![Galaxea Lab](https://github.com/userguide-galaxea/Galaxea_Lab/blob/galaxea/main/docs/source/_static/R1DVT_FRUIT.jpg)
 
 # Modified Contributors
 
